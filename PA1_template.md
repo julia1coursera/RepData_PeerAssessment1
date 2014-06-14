@@ -85,7 +85,7 @@ Variable 'date' had 0 missing values.
 
 Variable 'length' had 0 missing values.
 
-A new dataset ('impdata') was created, containing the original data and imputed values. A simple imputation method was adopted. The overall mean number of steps (rounded to integer) for the respective 5-minute interval was used to replace each NA value. 
+Imputation strategy: A new dataset ('impdata') was created, containing the original data and imputed values. A simple imputation method was adopted. The overall mean number of steps (rounded to integer) for the respective 5-minute interval was used to replace each NA value. 
 
 
 ```r
@@ -106,7 +106,7 @@ hist(imp.day.summary$steps.sum, main = "Histogram of total steps per day with im
 
 ![plot of chunk imputed_steps_per_day](figure/imputed_steps_per_day.png) 
 
-Imputing missing data had very little impact on the present analyses, as shown by the following details:
+Based on the simple imputation strategy (described above) the imputation of missing values had very little impact on the present analyses. The absence of major impact is shown by the following details:
 
 Mean total steps per day with imputed values was 
 10766.
