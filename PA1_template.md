@@ -123,22 +123,25 @@ For median total steps per day, the difference between original and imputed data
 ## Are there differences in activity patterns between weekdays and weekends?
 The data set containing imputed missing values was used to evaluate activity during weekdays and weekends.
 
+Weekday and weekend activity were notably different, as shown in the plot below.
+
 
 ```r
-#calculate mean values separately for weekdays and weekend days and plot in two panels
+#calculate mean values separately for weekdays and weekend days
 wkend <- c("Saturday", "Sunday")
 impdata$period <- "week"
 impdata$period[impdata$dayweek %in% wkend] <- "weekend"
 impdata$period <- as.factor(impdata$period)
 imp.int.summary <- summaryBy(steps ~ interval+period, data = impdata, FUN = mean)
+```
+
+
+```r
+#plot activity in two panels
 xyplot(steps.mean ~ interval|period, data = imp.int.summary, type = "l", x.lab = "5-minute interval", ylab = "Average steps", main = "Week and weekend activity patterns", layout = c(1,2), as.table = TRUE)
 ```
 
-![plot of chunk week_vs_weekend](figure/week_vs_weekend.png) 
-
-Weekday and weekend activity were notably different, as shown in the plot above.
-
-
+![plot of chunk activity_by_weekday_weekend](figure/activity_by_weekday_weekend.png) 
 
 
 
